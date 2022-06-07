@@ -7,19 +7,6 @@ public class Crud
 	{
 		String data = null;
 		System.out.println("\t ...Welcome Buddy... \t");
-		//String dbc = "jdbc:mysql://localhost:3306/peace","root","Kannan26@";
-		//String dbc = "jdbc:mysql://localhost:3306;" + "database=peace;" + "user=root;" + "password=Kannan26@;";
-		//Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/peace","root","Kannan26@");
-		/*Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/peace","root","Kannan26@");
-		Statement stt=conn.createStatement();
-		ResultSet rss=stt.executeQuery("select* from NATIVE");
-		while(rss.next())
-		{
-		System.out.println(rss.getString(1)+"\t"+rss.getString(2)+"\t"+rss.getString(3));
-		}*/
-		/*String dbURL = "jdbc:mysql://localhost:3306/peace";
-		String username= "root";
-		String password= "Kannan26@";*/
 		try
 		{
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/peace","root","Kannan26@");
@@ -58,18 +45,7 @@ public class Crud
 		
 		case "2":
 			try (Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/peace","root","Kannan26@"))
-			{
-				/*System.out.println("Enter Employee Name");
-				var E_Name = sc.nextLine();
-				System.out.println("Enter Employee ID");
-				int E_Id = sc.nextInt();
-				System.out.println("Enter Employee Posting");
-				var E_Posting = sc.nextLine();
-				System.out.println("Enter Employee Gender");
-				var E_Gender = sc.nextLine();
-				System.out.println("Enter Employee Contact");
-				var E_Contact = sc.nextLine();*/
-				
+			{	
 				String sql= "INSERT INTO employee (E_Name,E_Id,E_Posting,E_Salary,E_Gender,E_Contact) VALUES (?,?,?,?,?,?)";
 				PreparedStatement smt = con.prepareStatement(sql);
 				smt.setString(1,"Samraj");
@@ -94,16 +70,6 @@ public class Crud
 		case "3":
 			try (Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/peace","root","Kannan26@"))
 			{
-				/*System.out.println("Enter Employee Name");
-				var E_Name = sc.nextLine();
-				System.out.println("Enter Employee ID");
-				int E_Id = sc.nextInt();
-				System.out.println("Enter Employee Posting");
-				var E_Posting = sc.nextLine();
-				System.out.println("Enter Employee Gender");
-				var E_Gender = sc.nextLine();
-				System.out.println("Enter Employee Contact");
-				var E_Contact = sc.nextLine();*/
 				String sql = "UPDATE employee SET E_Name=?, E_Id=? WHERE E_Name=?";
 				PreparedStatement smt = con.prepareStatement(sql);
 				smt.setString(1,"krishna");
@@ -124,11 +90,7 @@ public class Crud
 			
 		case "4":
 			try (Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/peace","root","Kannan26@"))
-			{
-				/*System.out.println("Enter which Employee Id you want to delete ");	
-				String E_Id = sc.nextLine();
-				String dq = "delete from employee where E_Id = " + E_Id;*/
-				
+			{	
 				String sql = "DELETE FROM employee WHERE E_Name=?";
 				PreparedStatement smt = con.prepareStatement(sql);
 				smt.setString(1,"raghu");
